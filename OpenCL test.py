@@ -47,7 +47,7 @@ def main():
     result = opencl_matrix_multiply(A, B)
     end_time = time.time()
 
-    print(f"Time taken for this run: {end_time - start_time:.4f} seconds")
+    print(f"{end_time - start_time:.4f}")
 
 
 if __name__ == "__main__":
