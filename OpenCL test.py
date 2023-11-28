@@ -39,9 +39,10 @@ def opencl_matrix_multiply(A, B):
 
     return C_buf.get()
 
+
 def main():
-    A = np.random.rand(10000, 10000).astype(np.float32)
-    B = np.random.rand(10000, 10000).astype(np.float32)
+    A = np.random.rand(1000, 1000).astype(np.float32)
+    B = np.random.rand(1000, 1000).astype(np.float32)
 
     start_time = time.time()
     result = opencl_matrix_multiply(A, B)

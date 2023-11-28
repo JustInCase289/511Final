@@ -15,18 +15,21 @@ def matrix_multiplication(_):  # <-- Added an unused argument
 
 
 def main():
-    num_of_parallel_operations = 6  # You can adjust this number based on your machine's cores
-    start_time = time.time()
+    num_of_parallel_operations = 6
 
+    # Create the process pool outside the loop to reuse it
     with ProcessPoolExecutor(max_workers=num_of_parallel_operations) as executor:
-        # Run matrix_multiplication in parallel
-        results = list(executor.map(matrix_multiplication, range(num_of_parallel_operations)))
+        for _ in range(50):  # Run the main function 50 times
+            start_time = time.time()
 
-    end_time = time.time()
+            # Execute matrix multiplications
+            results = list(executor.map(matrix_multiplication, range(num_of_parallel_operations)))
 
-    print(f"{end_time - start_time:.4f}")
+            end_time = time.time()
+
+            # Print the time taken for each run
+            print(f"{end_time - start_time:.4}")
 
 
 if __name__ == "__main__":
-    for _ in range(50):  # Run the main function 50 times
-        main()
+    main()
